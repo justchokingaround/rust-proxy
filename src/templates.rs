@@ -169,9 +169,9 @@ static DOMAIN_GROUPS: Lazy<Vec<DomainGroup>> = Lazy::new(|| {
             custom_headers: None,
         },
         DomainGroup {
-            patterns: vec![r"(?i)cloudburst99\.xyz$", r"(?i)frostywinds73\.pro$", r"(?i)stormwatch39\.live$", r"(?i)sunnybreeze16\.live$", r"(?i)mistydawn62\.pro$", r"(?i)lightningbolt21\.live$", r"(?i)gentlebreeze85\.xyz$"],
+            patterns: vec![r"(?i)cloudburst99\.xyz$", r"(?i)frostywinds73\.pro$", r"(?i)stormwatch39\.live$", r"(?i)sunnybreeze16\.live$", r"(?i)mistydawn62\.pro$", r"(?i)lightningbolt21\.live$", r"(?i)gentlebreeze85\.xyz$", r"(?i)dewshine74\.xyz$"],
             origin: "https://videostr.net",
-            referer: "https://videostr.net/",            
+            referer: "https://videostr.net/",
             custom_headers: None,
         },        
         DomainGroup {
