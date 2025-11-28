@@ -462,7 +462,14 @@ async fn m3u8_proxy(req: HttpRequest) -> impl Responder {
 async fn main() -> std::io::Result<()> {
     dotenvy::dotenv().ok();
 
-    println!("We alive bois: http://127.0.0.1:8080");
+    let port = std::env::var("PORT")
+        .unwrap_or_else(|_| "8080".to_string())
+        .parse::<u16>()
+        .expect("PORT must be a valid number");
+
+    let address = format!("0.0.0.0:{}", port);
+
+    println!("We alive bois: http://127.0.0.1:{}", port);
     if *ENABLE_CORS {
         println!("Allowed origins: {:?}", *ALLOWED_ORIGINS);
     }
@@ -475,7 +482,7 @@ async fn main() -> std::io::Result<()> {
             .route("/", actix_web::web::method(Method::OPTIONS).to(handle_options))
     })
     .workers(num_cpus::get())
-    .bind("0.0.0.0:8080")?
+    .bind(address)?
     .run()
     .await
 }
